@@ -1,14 +1,16 @@
 #root {
-  max-width: 1280px;
+  max-width: 80vw;
+  height: 100vh;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
 
   justify-content: center;
+  align-content: center;
   display: grid;
   grid-auto-flow: column;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: auto 1fr 1fr 1fr;
+  grid-template-rows: 0.2fr 1fr 1fr 1fr;
 }
 
 body {
@@ -17,7 +19,39 @@ flex-direction: column;
 }
 
 h1 {
+  display: flex;
   justify-self: center;
+  align-content: center;
   grid-column: 1 / span 2;
   grid-row: 1;
+}
+
+.general {
+  grid-column: 1;
+  grid-row: 2;
+  align-content: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.education {
+  grid-column: 1;
+  grid-row: 3;
+  align-content: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.experience {
+  grid-column: 1;
+  grid-row: 4;
+  align-content: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.preview {
+  grid-column: 2;
+  grid-row: 2 / span 3;
+  align-content: center;
 }
