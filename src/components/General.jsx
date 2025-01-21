@@ -1,17 +1,23 @@
-import { useState } from 'react'
 import '../styles/General.css'
 
-export default function General() {
-  const [fname, setFname] = useState("");
-  const [lname, setLname] = useState("");
-  const [email, setEmail] = useState("");
-  const [phone, setPhone] = useState("");
-  const [submit, setSubmit] = useState("");
+
+import Input from "./Input"
+
+export default function General({ generalInfo, setGeneralInfo }) {
+  const handleInputChange = (field, value) => {
+    setGeneralInfo(prev => ({
+      ...prev,
+      [field]: value
+    }));
+  };
 
   const submitGeneral = () => {
     // Submit?? 
   };
 
+  const deleteGeneral = () => {
+    // Delete?? 
+  };
 
   return (
     <div className="general">
@@ -20,18 +26,17 @@ export default function General() {
       <label htmlFor="fname">First name:</label>
       <input
         type="text"
-        value={fname}
-        onChange={(event) => setFname(event.target.value)}
+        value={generalInfo.fname}
+        onChange={(event) => handleInputChange('fname', event.target.value)}
       />
 
       <label htmlFor="lname">Last name:</label>
-      <input
-        type="text"
-        value={lname}
-        onChange={(event) => setLname(event.target.value)}
+      <Input
+        value={generalInfo.lname}
+        onChange={(event) => handleInputChange('lname', event.target.value)}
       />
 
-      <label htmlFor="email">Email:</label>
+      {/* <label htmlFor="email">Email:</label>
       <input
         type="email"
         value={email}
@@ -43,9 +48,12 @@ export default function General() {
         type="phone"
         value={phone}
         onChange={(event) => setPhone(event.target.value)}
-      />
+      /> */}
 
-      <button onClick={submitGeneral}>Submit</button>
+      <button className="submit-general" onClick={submitGeneral}>Submit</button>
+
+      <button className="delete-general" onClick={deleteGeneral}>Delete</button>
+
     </div>
   );
 }

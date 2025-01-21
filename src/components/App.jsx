@@ -8,13 +8,20 @@ import Preview from './Preview'
 
 function App() {
 
+  const [generalInfo, setGeneralInfo] = useState({
+    fname: "",
+    lname: "",
+    email: "",
+    phone: ""
+  });
+
   return (
     <>
       <h1>CV Builder</h1>
-      <General/>
-      <Education/>
-      <Experience/>
-      <Preview/>
+      <General generalInfo={generalInfo} setGeneralInfo={setGeneralInfo} />
+      <Education />
+      <Experience />
+      <Preview generalInfo={generalInfo} setGeneralInfo={setGeneralInfo} />
     </>
   )
 }
