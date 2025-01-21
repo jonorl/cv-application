@@ -1,8 +1,5 @@
 import '../styles/General.css'
 
-
-import Input from "./Input"
-
 export default function General({ generalInfo, setGeneralInfo }) {
   const handleInputChange = (field, value) => {
     setGeneralInfo(prev => ({
@@ -31,24 +28,25 @@ export default function General({ generalInfo, setGeneralInfo }) {
       />
 
       <label htmlFor="lname">Last name:</label>
-      <Input
+      <input
+        type="text"
         value={generalInfo.lname}
         onChange={(event) => handleInputChange('lname', event.target.value)}
       />
 
-      {/* <label htmlFor="email">Email:</label>
+      <label htmlFor="email">Email:</label>
       <input
         type="email"
-        value={email}
-        onChange={(event) => setEmail(event.target.value)}
+        value={generalInfo.email}
+        onChange={(event) => handleInputChange('email', event.target.value)}
       />
 
       <label htmlFor="phone">Phone:</label>
       <input
         type="phone"
-        value={phone}
-        onChange={(event) => setPhone(event.target.value)}
-      /> */}
+        value={generalInfo.phone}
+        onChange={(event) => handleInputChange('phone', event.target.value)}
+      />
 
       <button className="submit-general" onClick={submitGeneral}>Submit</button>
 
