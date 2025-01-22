@@ -1,4 +1,4 @@
-export default function Preview({ generalInfo, educationInfo, experienceInfo}) {
+export default function Preview({ generalInfo, educationInfo, experienceInfo }) {
     return <div className="preview">
         <h1>{generalInfo.fname} {generalInfo.lname}</h1>
         <h2>{generalInfo.email}</h2>
@@ -13,6 +13,6 @@ export default function Preview({ generalInfo, educationInfo, experienceInfo}) {
         <h2>{experienceInfo.responsibilities}</h2>
         <h2>{experienceInfo.dateFrom}</h2>
         <h2>{experienceInfo.dateTo}</h2>
-        </div>
+    </div>
 
 }

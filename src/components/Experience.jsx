@@ -1,4 +1,4 @@
-export default function Experience(experienceInfo, setExperienceInfo) {
+export default function Experience({experienceInfo, setExperienceInfo}) {
 
   const handleInputChange = (field, value) => {
     setExperienceInfo(prev => ({
@@ -26,35 +26,35 @@ export default function Experience(experienceInfo, setExperienceInfo) {
       <label htmlFor="company">Experience:</label>
       <input
         type="text"
-        value={setExperienceInfo.company}
+        value={experienceInfo.company}
         onChange={(event) => handleInputChange('company', event.target.value)}
       />
 
       <label htmlFor="position">Position:</label>
       <input
         type="text"
-        value={setExperienceInfo.position}
+        value={experienceInfo.position}
         onChange={(event) => handleInputChange('position', event.target.value)}
       />
 
       <label htmlFor="responsibilities">Responsibilities:</label>
       <input
         type="text"
-        value={setExperienceInfo.responsibilities}
+        value={experienceInfo.responsibilities}
         onChange={(event) => handleInputChange('responsibilities', event.target.value)}
       />
 
       <label htmlFor="date-from">Date From:</label>
       <input
         type="date"
-        value={setExperienceInfo.dateFrom}
+        value={experienceInfo.dateFrom}
         onChange={(event) => handleInputChange('dateFrom', event.target.value)}
       />
 
       <label htmlFor="date-to">Date To:</label>
       <input
         type="date"
-        value={setExperienceInfo.dateTo}
+        value={experienceInfo.dateTo}
         onChange={(event) => handleInputChange('dateTo', event.target.value)}
       />
 

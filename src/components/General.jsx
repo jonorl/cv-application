@@ -1,4 +1,5 @@
 export default function General({ generalInfo, setGeneralInfo }) {
+  
   const handleInputChange = (field, value) => {
     setGeneralInfo(prev => ({
       ...prev,
