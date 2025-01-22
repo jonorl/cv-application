@@ -1,14 +1,11 @@
 #root {
-  max-width: 80vw;
-  height: 100vh;
-  margin: 0 auto;
-  padding: 2rem;
   text-align: center;
 
   justify-content: center;
   align-content: center;
   display: grid;
   grid-auto-flow: column;
+  width: 80vw;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 0.2fr 1fr 1fr 1fr;
 }
@@ -16,6 +13,8 @@
 body {
 display: flex;
 flex-direction: column;
+justify-content: center;
+
 }
 
 h1 {
@@ -32,6 +31,8 @@ h1 {
   align-content: center;
   display: flex;
   flex-direction: column;
+  max-width: 50vw;
+  justify-self: center;
 }
 
 .education {
@@ -40,18 +41,25 @@ h1 {
   align-content: center;
   display: flex;
   flex-direction: column;
+  max-width: 50vw;
+  justify-self: center;
 }
 
 .experience {
   grid-column: 1;
   grid-row: 4;
-  align-content: center;
   display: flex;
   flex-direction: column;
+  max-width: 50vw;
+  justify-self: center;
 }
 
 .preview {
   grid-column: 2;
   grid-row: 2 / span 3;
-  align-content: center;
+  justify-self: center;
+}
+
+input {
+  width: 25vw;
 }

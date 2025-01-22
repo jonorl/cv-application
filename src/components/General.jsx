@@ -8,12 +8,18 @@ export default function General({ generalInfo, setGeneralInfo }) {
     }));
   };
 
-  const submitGeneral = () => {
-    // Submit?? 
+  const handleDelete = (fname, lname, email, phone) => {
+    setGeneralInfo(prev => ({
+      ...prev,
+      [fname]: "",
+      [lname]: "",
+      [email]: "",
+      [phone]: "",
+    }));
   };
 
-  const deleteGeneral = () => {
-    // Delete?? 
+  const submitGeneral = () => {
+    // Submit?? 
   };
 
   return (
@@ -50,7 +56,7 @@ export default function General({ generalInfo, setGeneralInfo }) {
 
       <button className="submit-general" onClick={submitGeneral}>Submit</button>
 
-      <button className="delete-general" onClick={deleteGeneral}>Delete</button>
+      <button className="delete-general" onClick={() => handleDelete('fname', 'lname', 'email', 'phone')}>Delete</button>
 
     </div>
   );
