@@ -1,10 +1,22 @@
-import { useState } from 'react'
 import '../styles/Education.css'
 
-export default function Education() {
-  const [school, setSchool] = useState("");
-  const [title, setTitle] = useState("");
-  const [date, setDate] = useState("");
+export default function Education({ educationInfo, setEducationInfo }) {
+
+  const handleInputChange = (field, value) => {
+    setEducationInfo(prev => ({
+      ...prev,
+      [field]: value
+    }));
+  };
+
+  const handleDelete = (school, title, date) => {
+    setEducationInfo(prev => ({
+      ...prev,
+      [school]: "",
+      [title]: "",
+      [date]: "",
+    }));
+  };
 
   return (
     <div className="education">
@@ -14,23 +26,26 @@ export default function Education() {
       <label htmlFor="schoolName">School Name:</label>
       <input
         type="text"
-        value={school}
-        onChange={(event) => setSchool(event.target.value)}
+        value={educationInfo.school}
+        onChange={(event) => handleInputChange("school", event.target.value)}
       />
 
       <label htmlFor="title">Title:</label>
       <input
         type="text"
-        value={title}
-        onChange={(event) => setTitle(event.target.value)}
+        value={educationInfo.title}
+        onChange={(event) => handleInputChange("title", event.target.value)}
       />
 
       <label htmlFor="date">Graduation Date:</label>
       <input
         type="date"
-        value={date}
-        onChange={(event) => setDate(event.target.value)}
+        value={educationInfo.date}
+        onChange={(event) => handleInputChange("date", event.target.value)}
       />
+
+      <button className="delete-education" onClick={() => handleDelete('school', 'title', 'date')}>Delete</button>
+
     </div>
   );
 }

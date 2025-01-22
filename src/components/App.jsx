@@ -15,13 +15,20 @@ function App() {
     phone: ""
   });
 
+  const [educationInfo, setEducationInfo] = useState({
+    school: "",
+    title: "",
+    date: "",
+  });
+
   return (
     <>
       <h1>CV Builder</h1>
       <General generalInfo={generalInfo} setGeneralInfo={setGeneralInfo} />
-      <Education />
+      <Education educationInfo={educationInfo} setEducationInfo={setEducationInfo} />
       <Experience />
-      <Preview generalInfo={generalInfo} setGeneralInfo={setGeneralInfo} />
+      <Preview generalInfo={generalInfo} setGeneralInfo={setGeneralInfo}
+      educationInfo={educationInfo} setEducationInfo={setEducationInfo} />
     </>
   )
 }

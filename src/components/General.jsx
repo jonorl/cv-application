@@ -18,10 +18,6 @@ export default function General({ generalInfo, setGeneralInfo }) {
     }));
   };
 
-  const submitGeneral = () => {
-    // Submit?? 
-  };
-
   return (
     <div className="general">
       <h2>General Information</h2>
@@ -53,8 +49,6 @@ export default function General({ generalInfo, setGeneralInfo }) {
         value={generalInfo.phone}
         onChange={(event) => handleInputChange('phone', event.target.value)}
       />
-
-      <button className="submit-general" onClick={submitGeneral}>Submit</button>
 
       <button className="delete-general" onClick={() => handleDelete('fname', 'lname', 'email', 'phone')}>Delete</button>
 
