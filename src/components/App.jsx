@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import '../styles/App.css'
 
 import General from './General'
 import Education from './Education'
@@ -21,14 +20,23 @@ function App() {
     date: "",
   });
 
+  const [experienceInfo, setExperienceInfo] = useState({
+    company: "",
+    position: "",
+    responsibilities: "",
+    dateFrom: "",
+    dateTo: "",
+  });
+
   return (
     <>
       <h1>CV Builder</h1>
       <General generalInfo={generalInfo} setGeneralInfo={setGeneralInfo} />
       <Education educationInfo={educationInfo} setEducationInfo={setEducationInfo} />
-      <Experience />
+      <Experience experienceInfo={experienceInfo} setExperienceInfo={setExperienceInfo} />
       <Preview generalInfo={generalInfo} setGeneralInfo={setGeneralInfo}
-      educationInfo={educationInfo} setEducationInfo={setEducationInfo} />
+        educationInfo={educationInfo} setEducationInfo={setEducationInfo}
+        experienceInfo={experienceInfo} setExperienceInfo={setExperienceInfo} />
     </>
   )
 }

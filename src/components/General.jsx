@@ -1,5 +1,3 @@
-import '../styles/General.css'
-
 export default function General({ generalInfo, setGeneralInfo }) {
   const handleInputChange = (field, value) => {
     setGeneralInfo(prev => ({

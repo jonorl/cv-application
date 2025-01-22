@@ -1,12 +1,22 @@
-import { useState } from 'react'
-import '../styles/Experience.css'
+export default function Experience(experienceInfo, setExperienceInfo) {
 
-export default function Experience() {
-  const [company, setCompany] = useState("");
-  const [position, setPosition] = useState("");
-  const [responsibilities, setResponsibilities] = useState("");
-  const [dateFrom, setDateFrom] = useState("");
-  const [dateTo, setDateTo] = useState("");
+  const handleInputChange = (field, value) => {
+    setExperienceInfo(prev => ({
+      ...prev,
+      [field]: value
+    }));
+  };
+
+  const handleDelete = (company, position, responsibilities, dateFrom, dateTo) => {
+    setExperienceInfo(prev => ({
+      ...prev,
+      [company]: "",
+      [position]: "",
+      [responsibilities]: "",
+      [dateFrom]: "",
+      [dateTo]: "",
+    }));
+  };
 
   return (
     <div className="experience">
@@ -16,37 +26,40 @@ export default function Experience() {
       <label htmlFor="company">Experience:</label>
       <input
         type="text"
-        value={company}
-        onChange={(event) => setCompany(event.target.value)}
+        value={setExperienceInfo.company}
+        onChange={(event) => handleInputChange('company', event.target.value)}
       />
 
       <label htmlFor="position">Position:</label>
       <input
         type="text"
-        value={position}
-        onChange={(event) => setPosition(event.target.value)}
+        value={setExperienceInfo.position}
+        onChange={(event) => handleInputChange('position', event.target.value)}
       />
 
       <label htmlFor="responsibilities">Responsibilities:</label>
       <input
         type="text"
-        value={responsibilities}
-        onChange={(event) => setResponsibilities(event.target.value)}
+        value={setExperienceInfo.responsibilities}
+        onChange={(event) => handleInputChange('responsibilities', event.target.value)}
       />
 
       <label htmlFor="date-from">Date From:</label>
       <input
         type="date"
-        value={dateFrom}
-        onChange={(event) => setDateFrom(event.target.value)}
+        value={setExperienceInfo.dateFrom}
+        onChange={(event) => handleInputChange('dateFrom', event.target.value)}
       />
 
       <label htmlFor="date-to">Date To:</label>
       <input
         type="date"
-        value={dateTo}
-        onChange={(event) => setDateTo(event.target.value)}
+        value={setExperienceInfo.dateTo}
+        onChange={(event) => handleInputChange('dateTo', event.target.value)}
       />
+
+      <button className="delete-experience" onClick={() => handleDelete('company', 'position', 'responsibilities', 'dateFrom', 'dateTo')}>Delete</button>
+
     </div>
   );
 }

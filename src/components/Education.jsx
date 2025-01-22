@@ -1,5 +1,3 @@
-import '../styles/Education.css'
-
 export default function Education({ educationInfo, setEducationInfo }) {
 
   const handleInputChange = (field, value) => {
