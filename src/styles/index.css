@@ -135,6 +135,19 @@ input {
   margin-bottom: 3vh;
 }
 
+[class^="prev-"],[class^="next-"]  {
+  font-size: 18px;
+  padding: 1vh 1vw;
+  border-radius: 25px;
+  display: flex;
+  background-color: 242424;
+  color: whitesmoke;
+  width: fit-content;
+  justify-self: center;
+  margin-top: 3vh;
+  margin-bottom: 3vh;
+}
+
 .button-container{
   display: flex;
   justify-content: space-evenly;

@@ -1,15 +1,6 @@
-export default function Education({ educationInfo, setEducationInfo }) {
+import App from "./App";
 
-  const handleInputChange = (field, value) => {
-    setEducationInfo(prev => ({
-      ...prev,
-      [field]: value
-    }));
-  };
-
-  const handleAdd = () => {
-    // something
-  };
+export default function Education({ educationInfo, setEducationInfo, educationFields, educationEntries, prevEducation, nextEducation, addEducationEntry }) {
 
   const handleDelete = (school, title, date) => {
     setEducationInfo(prev => ({
@@ -20,34 +11,7 @@ export default function Education({ educationInfo, setEducationInfo }) {
     }));
   };
 
-  const educationFields = (
-    <>
-      <h2>Education</h2>
 
-      <label htmlFor="schoolName">School Name:</label>
-      <input
-        type="text"
-        value={educationInfo.school}
-        placeholder="Hollywood Upstairs Medical College"
-        onChange={(event) => handleInputChange("school", event.target.value)}
-      />
-
-      <label htmlFor="title">Title:</label>
-      <input
-        type="text"
-        value={educationInfo.title}
-        placeholder="Nuclear Safety Engineer"
-        onChange={(event) => handleInputChange("title", event.target.value)}
-      />
-
-      <label htmlFor="date">Graduation Date:</label>
-      <input
-        type="date"
-        value={educationInfo.date}
-        onChange={(event) => handleInputChange("date", event.target.value)}
-      />
-    </>
-  )
 
   return (
     <div className="education">
@@ -55,7 +19,9 @@ export default function Education({ educationInfo, setEducationInfo }) {
       {educationFields}
 
       <div className="button-container">
-        <button className="add-education" onClick={() => handleAdd()}>Add</button>
+        <button className="add-education" onClick={() => addEducationEntry()}>Add</button>
+        <button className="prev-education"onClick={prevEducation}>Prev</button>
+        <button className="next-education"onClick={nextEducation}>Next</button>
         <button className="delete-education" onClick={() => handleDelete('school', 'title', 'date')}>Delete</button>
       </div>
 
