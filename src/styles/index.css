@@ -122,6 +122,24 @@ input {
   margin-bottom: 3vh;
 }
 
+[class^="add"] {
+  font-size: 18px;
+  padding: 1vh 1vw;
+  border-radius: 25px;
+  display: flex;
+  background-color: yellowgreen;
+  color:#242424;
+  width: fit-content;
+  justify-self: center;
+  margin-top: 3vh;
+  margin-bottom: 3vh;
+}
+
+.button-container{
+  display: flex;
+  justify-content: space-evenly;
+}
+
 .submitted {
   grid-column: 2;
   grid-row: 1 / span 4;

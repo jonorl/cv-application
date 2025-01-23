@@ -1,10 +1,14 @@
-export default function Experience({experienceInfo, setExperienceInfo}) {
+export default function Experience({ experienceInfo, setExperienceInfo }) {
 
   const handleInputChange = (field, value) => {
     setExperienceInfo(prev => ({
       ...prev,
       [field]: value
     }));
+  };
+
+  const handleAdd = () => {
+    // something
   };
 
   const handleDelete = (company, position, responsibilities, dateFrom, dateTo) => {
@@ -61,8 +65,10 @@ export default function Experience({experienceInfo, setExperienceInfo}) {
         onChange={(event) => handleInputChange('dateTo', event.target.value)}
       />
 
-      <button className="delete-experience" onClick={() => handleDelete('company', 'position', 'responsibilities', 'dateFrom', 'dateTo')}>Delete</button>
-
+      <div className="button-container">
+        <button className="add-education" onClick={() => handleAdd()}>Add</button>
+        <button className="delete-experience" onClick={() => handleDelete('company', 'position', 'responsibilities', 'dateFrom', 'dateTo')}>Delete</button>
+      </div>
     </div>
   );
 }

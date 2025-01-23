@@ -7,6 +7,10 @@ export default function Education({ educationInfo, setEducationInfo }) {
     }));
   };
 
+  const handleAdd = () => {
+    // something
+  };
+
   const handleDelete = (school, title, date) => {
     setEducationInfo(prev => ({
       ...prev,
@@ -44,8 +48,10 @@ export default function Education({ educationInfo, setEducationInfo }) {
         onChange={(event) => handleInputChange("date", event.target.value)}
       />
 
-      <button className="delete-education" onClick={() => handleDelete('school', 'title', 'date')}>Delete</button>
-
+      <div className="button-container">
+        <button className="add-education" onClick={() => handleAdd()}>Add</button>
+        <button className="delete-education" onClick={() => handleDelete('school', 'title', 'date')}>Delete</button>
+      </div>
     </div>
   );
 }
