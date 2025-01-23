@@ -27,6 +27,7 @@ export default function Experience({experienceInfo, setExperienceInfo}) {
       <input
         type="text"
         value={experienceInfo.company}
+        placeholder="Springfield Nuclear Plant"
         onChange={(event) => handleInputChange('company', event.target.value)}
       />
 
@@ -34,6 +35,7 @@ export default function Experience({experienceInfo, setExperienceInfo}) {
       <input
         type="text"
         value={experienceInfo.position}
+        placeholder="Head Bee guy"
         onChange={(event) => handleInputChange('position', event.target.value)}
       />
 
@@ -41,6 +43,7 @@ export default function Experience({experienceInfo, setExperienceInfo}) {
       <input
         type="text"
         value={experienceInfo.responsibilities}
+        placeholder="Guard the bee"
         onChange={(event) => handleInputChange('responsibilities', event.target.value)}
       />
 

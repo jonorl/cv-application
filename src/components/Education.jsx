@@ -25,6 +25,7 @@ export default function Education({ educationInfo, setEducationInfo }) {
       <input
         type="text"
         value={educationInfo.school}
+        placeholder="Hollywood Upstairs Medical College"
         onChange={(event) => handleInputChange("school", event.target.value)}
       />
 
@@ -32,6 +33,7 @@ export default function Education({ educationInfo, setEducationInfo }) {
       <input
         type="text"
         value={educationInfo.title}
+        placeholder="Nuclear Safety Engineer"
         onChange={(event) => handleInputChange("title", event.target.value)}
       />
 

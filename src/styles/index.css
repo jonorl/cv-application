@@ -11,27 +11,27 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-
 #root {
   text-align: center;
   justify-content: center;
   align-content: center;
   display: grid;
+  row-gap: 5vh;
   grid-auto-flow: column;
-  width: 80vw;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 0.2fr 1fr 1fr 1fr;
+  grid-template-rows: 0.2fr auto auto auto;
 }
 
 body {
-display: flex;
-flex-direction: column;
-justify-content: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
+  justify-content: center;
   display: flex;
   justify-self: center;
   align-content: center;
@@ -40,15 +40,22 @@ h1 {
 }
 
 .general {
+  border: solid 2px whitesmoke;
+  padding-left: 2vw;
+  padding-right: 2vw;
   grid-column: 1;
   grid-row: 2;
   align-content: center;
   display: grid;
   max-width: 50vw;
   justify-self: center;
+  max-height: min-content;
 }
 
 .education {
+  border: solid 2px whitesmoke;
+  padding-left: 2vw;
+  padding-right: 2vw;
   grid-column: 1;
   grid-row: 3;
   align-content: center;
@@ -58,6 +65,9 @@ h1 {
 }
 
 .experience {
+  border: solid 2px whitesmoke;
+  padding-left: 2vw;
+  padding-right: 2vw;
   grid-column: 1;
   grid-row: 4;
   align-content: center;
@@ -67,13 +77,16 @@ h1 {
 }
 
 .preview {
+  border: solid 2px whitesmoke;
   grid-column: 2;
   grid-row: 2 / span 3;
   justify-self: center;
+  width: 40vw;
 }
 
 input {
   width: 25vw;
+  justify-self: center;
 }
 
 [class^="delete"] {
@@ -81,8 +94,9 @@ input {
   padding: 1vh 1vw;
   border-radius: 25px;
   display: flex;
-  background-color:rgb(237, 17, 17);
+  background-color: rgb(237, 17, 17);
   width: fit-content;
   justify-self: center;
   margin-top: 3vh;
+  margin-bottom: 3vh;
 }

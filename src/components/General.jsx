@@ -25,6 +25,7 @@ export default function General({ generalInfo, setGeneralInfo }) {
       <input
         type="text"
         value={generalInfo.fname}
+        placeholder="Joe"
         onChange={(event) => handleInputChange('fname', event.target.value)}
       />
 
@@ -32,6 +33,7 @@ export default function General({ generalInfo, setGeneralInfo }) {
       <input
         type="text"
         value={generalInfo.lname}
+        placeholder="Bloggs"
         onChange={(event) => handleInputChange('lname', event.target.value)}
       />
 
@@ -39,6 +41,7 @@ export default function General({ generalInfo, setGeneralInfo }) {
       <input
         type="email"
         value={generalInfo.email}
+        placeholder="joe@bloggs.com"
         onChange={(event) => handleInputChange('email', event.target.value)}
       />
 
@@ -46,6 +49,7 @@ export default function General({ generalInfo, setGeneralInfo }) {
       <input
         type="phone"
         value={generalInfo.phone}
+        placeholder="07123 546 789"
         onChange={(event) => handleInputChange('phone', event.target.value)}
       />
 
