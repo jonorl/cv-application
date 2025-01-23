@@ -20,9 +20,8 @@ export default function Education({ educationInfo, setEducationInfo }) {
     }));
   };
 
-  return (
-    <div className="education">
-
+  const educationFields = (
+    <>
       <h2>Education</h2>
 
       <label htmlFor="schoolName">School Name:</label>
@@ -47,11 +46,19 @@ export default function Education({ educationInfo, setEducationInfo }) {
         value={educationInfo.date}
         onChange={(event) => handleInputChange("date", event.target.value)}
       />
+    </>
+  )
+
+  return (
+    <div className="education">
+
+      {educationFields}
 
       <div className="button-container">
         <button className="add-education" onClick={() => handleAdd()}>Add</button>
         <button className="delete-education" onClick={() => handleDelete('school', 'title', 'date')}>Delete</button>
       </div>
+
     </div>
   );
 }

@@ -22,9 +22,8 @@ export default function Experience({ experienceInfo, setExperienceInfo }) {
     }));
   };
 
-  return (
-    <div className="experience">
-
+  const experienceFields = (
+    <>
       <h2>Experience</h2>
 
       <label htmlFor="company">Experience:</label>
@@ -64,6 +63,13 @@ export default function Experience({ experienceInfo, setExperienceInfo }) {
         value={experienceInfo.dateTo}
         onChange={(event) => handleInputChange('dateTo', event.target.value)}
       />
+    </>
+  )
+
+  return (
+    <div className="experience">
+
+    {experienceFields}
 
       <div className="button-container">
         <button className="add-education" onClick={() => handleAdd()}>Add</button>

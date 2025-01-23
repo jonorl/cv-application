@@ -32,7 +32,4 @@ export default function Preview({ generalInfo, educationInfo, experienceInfo }) 
 
         <button className="submit" onClick={() => handleSubmit()}>Submit</button>
     </div>
-
-
-
 }
