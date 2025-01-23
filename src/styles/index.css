@@ -76,17 +76,38 @@ h1 {
   justify-self: center;
 }
 
-.preview {
-  border: solid 2px whitesmoke;
+.preview-container {
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: auto 0.1fr;
+  grid-auto-flow: column;
   grid-column: 2;
   grid-row: 2 / span 3;
+
+  justify-self: center;
+}
+
+.preview {
+  grid-row: 1;
+  border: solid 2px whitesmoke;
   justify-self: center;
   width: 40vw;
 }
 
+button.submit {
+  grid-row: 2;
+  padding: 1vh 1vw;
+  border-radius: 25px;
+  background-color: green;
+  text-align: center;
+  justify-self: center;
+  align-self: center;
+  font-size: 18px;
+}
+
 input {
   width: 25vw;
-  justify-self: center;
+  text-align: center;
 }
 
 [class^="delete"] {
@@ -99,4 +120,11 @@ input {
   justify-self: center;
   margin-top: 3vh;
   margin-bottom: 3vh;
+}
+
+.submitted {
+  grid-column: 2;
+  grid-row: 1 / span 4;
+  align-self: center;
+  font-size: 36px;
 }
