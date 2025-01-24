@@ -16,7 +16,7 @@ export default function Preview({ generalInfo, educationEntries, experienceEntri
         return educationEntries.map((entry, index) => (
             <div key={index}>
                 <h1>Education {index + 1}</h1>
-                <h1>{entry.school}</h1>
+                <h2>{entry.school}</h2>
                 <h2>{entry.title}</h2>
                 <h2>{entry.date}</h2>
                 <br />
@@ -30,12 +30,11 @@ export default function Preview({ generalInfo, educationEntries, experienceEntri
         </>
     )
 
-    
     function renderOtherExperience() {
         return experienceEntries.map((entry, index) => (
             <div key={index}>
                 <h1>Experience {index + 1}</h1>
-                <h1>{entry.company}</h1>
+                <h2>{entry.company}</h2>
                 <h2>{entry.position}</h2>
                 <h2>{entry.responsibilities}</h2>
                 <h2>{entry.dateFrom}</h2>
