@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-export default function Preview({ generalInfo, educationInfo, educationEntries, currentEducationIndex, currentEducation, experienceInfo, }) {
+export default function Preview({ generalInfo, educationEntries, experienceInfo, }) {
 
     const [isSubmitted, setSubmitted] = useState(false);
 
@@ -27,12 +27,6 @@ export default function Preview({ generalInfo, educationInfo, educationEntries, 
         const previewDivEducation = (
             <>
                 {renderOtherEducation()}
-
-                {/* <h1>Education {educationEntries.length + 1}</h1>
-                <h1>{educationInfo.school}</h1>
-                <h2>{educationInfo.title}</h2>
-                <h2>{educationInfo.date}</h2>
-                <br /> */}
             </>
         )
 

@@ -28,21 +28,12 @@ function App() {
 
   const [educationEntries, setEducationEntries] = useState([]); // To store all education entries
   const [currentEducationIndex, setCurrentEducationIndex] = useState(0); // To navigate through education entries
-  const currentEducation = educationEntries[currentEducationIndex] || {}; // To render current education entry
-
+  
   const handleInputChangeEducation = (field, value) => { // To handle input changes
     setEducationInfo({ ...educationInfo, [field]: value });
   };
 
   // Education button functions
-
-  // const addEducationEntry = () => {
-  //   setEducationEntries([...educationEntries, educationInfo]);
-  //   setCurrentEducationIndex(educationEntries.length);
-  //   console.log(educationEntries[currentEducationIndex].school)
-  //   setEducationInfo({ school:educationEntries.school, title: "", date: "" });
-  //   nextEducation();
-  // };
 
   const submitEducationEntry = () => {
     // Create a new array by mapping through existing entries
@@ -165,13 +156,12 @@ function App() {
     <>
       <h1>CV Builder</h1>
       <General generalInfo={generalInfo} setGeneralInfo={setGeneralInfo} />
-      <Education educationInfo={educationInfo} setEducationInfo={setEducationInfo} educationFields={educationFields} educationEntries={educationEntries} nextEducation={nextEducation} prevEducation={prevEducation} addEducationEntry={addEducationEntry} submitEducationEntry={submitEducationEntry} />
+      <Education setEducationInfo={setEducationInfo} educationFields={educationFields} nextEducation={nextEducation} prevEducation={prevEducation} addEducationEntry={addEducationEntry} submitEducationEntry={submitEducationEntry} />
       <Experience experienceInfo={experienceInfo} setExperienceInfo={setExperienceInfo} />
-      <Preview generalInfo={generalInfo} setGeneralInfo={setGeneralInfo}
-        educationInfo={educationInfo} setEducationInfo={setEducationInfo} currentEducation={currentEducation}
-        currentEducationIndex={currentEducationIndex}
+      <Preview generalInfo={generalInfo}
+        setEducationInfo={setEducationInfo}
         educationEntries={educationEntries}
-        experienceInfo={experienceInfo} setExperienceInfo={setExperienceInfo} />
+        experienceInfo={experienceInfo} />
     </>
   )
 }
