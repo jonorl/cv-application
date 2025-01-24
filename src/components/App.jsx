@@ -7,7 +7,7 @@ import Preview from './Preview'
 
 function App() {
 
-  // Default states for all input fields
+  // Default states for General
 
   const [generalInfo, setGeneralInfo] = useState({
     fname: "",
@@ -16,37 +16,32 @@ function App() {
     phone: ""
   });
 
-  const [educationInfo, setEducationInfo] = useState({
+  // Education Related functions, states, props and templates.
+
+  // Education state changes
+
+  const [educationInfo, setEducationInfo] = useState({  // To render input on Preview
     school: "",
     title: "",
     date: "",
   });
 
-  const [currentEducationIndex, setCurrentEducationIndex] = useState(0);
-  const [educationEntries, setEducationEntries] = useState([]);
+  const [educationEntries, setEducationEntries] = useState([]); // To store all education entries
+  const [currentEducationIndex, setCurrentEducationIndex] = useState(0); // To navigate through education entries
+  const currentEducation = educationEntries[currentEducationIndex] || {}; // To render current education entry
 
-  const [experienceInfo, setExperienceInfo] = useState({
-    company: "",
-    position: "",
-    responsibilities: "",
-    dateFrom: "",
-    dateTo: "",
-  });
-
-  // Education
-
-  const handleInputChangeEducation = (field, value) => {
+  const handleInputChangeEducation = (field, value) => { // To handle input changes
     setEducationInfo({ ...educationInfo, [field]: value });
   };
 
+  // Education button functions
+
   const addEducationEntry = () => {
     setEducationEntries([...educationEntries, educationInfo]);
-    setCurrentEducationIndex(educationEntries.length);
+    setCurrentEducationIndex(educationEntries.length); //
     setEducationInfo({ school: "", title: "", date: "" });
     nextEducation();
   };
-
-  const currentEducation = educationEntries[currentEducationIndex] || {};
 
   const nextEducation = () => {
     if (currentEducationIndex < educationEntries.length - 1) {
@@ -60,6 +55,7 @@ function App() {
     }
   };
 
+  // Education input fields template
 
   const educationFields = (
     <>
@@ -90,7 +86,19 @@ function App() {
     </>
   )
 
-  // Render
+  // Experience Related functions, states, props and templates.
+
+  // Experience state changes
+
+  const [experienceInfo, setExperienceInfo] = useState({
+    company: "",
+    position: "",
+    responsibilities: "",
+    dateFrom: "",
+    dateTo: "",
+  });
+
+  // Render and passing props to components
 
   return (
     <>

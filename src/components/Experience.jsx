@@ -26,7 +26,7 @@ export default function Experience({ experienceInfo, setExperienceInfo }) {
     <>
       <h2>Experience</h2>
 
-      <label htmlFor="company">Experience:</label>
+      <label htmlFor="company">Company:</label>
       <input
         type="text"
         value={experienceInfo.company}
