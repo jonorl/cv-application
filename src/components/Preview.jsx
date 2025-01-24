@@ -28,11 +28,11 @@ export default function Preview({ generalInfo, educationInfo, educationEntries, 
             <>
                 {renderOtherEducation()}
 
-                <h1>Education {educationEntries.length + 1}</h1>
+                {/* <h1>Education {educationEntries.length + 1}</h1>
                 <h1>{educationInfo.school}</h1>
                 <h2>{educationInfo.title}</h2>
                 <h2>{educationInfo.date}</h2>
-                <br />
+                <br /> */}
             </>
         )
 

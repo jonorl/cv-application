@@ -36,23 +36,84 @@ function App() {
 
   // Education button functions
 
+  // const addEducationEntry = () => {
+  //   setEducationEntries([...educationEntries, educationInfo]);
+  //   setCurrentEducationIndex(educationEntries.length);
+  //   console.log(educationEntries[currentEducationIndex].school)
+  //   setEducationInfo({ school:educationEntries.school, title: "", date: "" });
+  //   nextEducation();
+  // };
+
+  const submitEducationEntry = () => {
+    // Create a new array by mapping through existing entries
+    const updatedEntries = educationEntries.map((entry, index) => {
+      // If this is the current index, update with current educationInfo
+      if (index === currentEducationIndex) {
+        return { ...educationInfo };
+      }
+      // Otherwise, return the original entry
+      return entry;
+    });
+  
+    // If no entries exist at the current index, append the new entry
+    if (currentEducationIndex >= updatedEntries.length) {
+      updatedEntries.push({ ...educationInfo });
+    }
+  
+    // Update the entries array
+    setEducationEntries(updatedEntries);
+  };
+
   const addEducationEntry = () => {
-    setEducationEntries([...educationEntries, educationInfo]);
-    setCurrentEducationIndex(educationEntries.length); //
+    // Create a new array with the existing entries
+    const updatedEntries = [...educationEntries];
+    
+    // Add a new blank entry to the array
+    updatedEntries.push({ school: "", title: "", date: "" });
+    
+    // Update the entries array
+    setEducationEntries(updatedEntries);
+    
+    // Move the current index to the newly created entry
+    setCurrentEducationIndex(updatedEntries.length - 1);
+    
+    // Reset the educationInfo to blank
     setEducationInfo({ school: "", title: "", date: "" });
-    nextEducation();
   };
 
   const nextEducation = () => {
+    console.log("currentEducationIndex " + currentEducationIndex)
     if (currentEducationIndex < educationEntries.length - 1) {
+      // When moving to next entry, update the educationInfo state 
+      // with the details of the next entry
       setCurrentEducationIndex(currentEducationIndex + 1);
+      console.log("currentEducationIndex " + currentEducationIndex)
+      setEducationInfo({
+        school: educationEntries[currentEducationIndex + 1].school,
+        title: educationEntries[currentEducationIndex + 1].title,
+        date: educationEntries[currentEducationIndex + 1].date
+      });
+      return currentEducationIndex
     }
+    console.log("currentEducationIndex " + currentEducationIndex)
   };
 
   const prevEducation = () => {
+    console.log("currentEducationIndex " + currentEducationIndex)
     if (currentEducationIndex > 0) {
+      // When moving to previous entry, update the educationInfo state 
+      // with the details of the previous entry
       setCurrentEducationIndex(currentEducationIndex - 1);
+
+
+      setEducationInfo({
+        school: educationEntries[currentEducationIndex - 1].school,
+        title: educationEntries[currentEducationIndex - 1].title,
+        date: educationEntries[currentEducationIndex - 1].date
+      });
+      return currentEducationIndex
     }
+    console.log("currentEducationIndex " + currentEducationIndex)
   };
 
   // Education input fields template
@@ -104,7 +165,7 @@ function App() {
     <>
       <h1>CV Builder</h1>
       <General generalInfo={generalInfo} setGeneralInfo={setGeneralInfo} />
-      <Education educationInfo={educationInfo} setEducationInfo={setEducationInfo} educationFields={educationFields} educationEntries={educationEntries} nextEducation={nextEducation} prevEducation={prevEducation} addEducationEntry={addEducationEntry} />
+      <Education educationInfo={educationInfo} setEducationInfo={setEducationInfo} educationFields={educationFields} educationEntries={educationEntries} nextEducation={nextEducation} prevEducation={prevEducation} addEducationEntry={addEducationEntry} submitEducationEntry={submitEducationEntry} />
       <Experience experienceInfo={experienceInfo} setExperienceInfo={setExperienceInfo} />
       <Preview generalInfo={generalInfo} setGeneralInfo={setGeneralInfo}
         educationInfo={educationInfo} setEducationInfo={setEducationInfo} currentEducation={currentEducation}
