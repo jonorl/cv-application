@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-export default function Preview({ generalInfo, educationEntries, experienceInfo, }) {
+export default function Preview({ generalInfo, educationEntries, experienceEntries, }) {
 
     const [isSubmitted, setSubmitted] = useState(false);
 
@@ -24,33 +24,45 @@ export default function Preview({ generalInfo, educationEntries, experienceInfo,
         ));
     }
 
-        const previewDivEducation = (
-            <>
-                {renderOtherEducation()}
-            </>
-        )
+    const previewDivEducation = (
+        <>
+            {renderOtherEducation()}
+        </>
+    )
 
-        const previewDivExperience = (
-            <>
-                <h1>{experienceInfo.company}</h1>
-                <h2>{experienceInfo.position}</h2>
-                <h2>{experienceInfo.responsibilities}</h2>
-                <h2>{experienceInfo.dateFrom}</h2>
-                <h2>{experienceInfo.dateTo}</h2>
-            </>
-        )
-
-        return <div className="preview-container">
-
-            <div className="preview">
-                <h1>{generalInfo.fname} {generalInfo.lname}</h1>
-                <h2>{generalInfo.email}</h2>
-                <h2>{generalInfo.phone}</h2>
+    
+    function renderOtherExperience() {
+        return experienceEntries.map((entry, index) => (
+            <div key={index}>
+                <h1>Experience {index + 1}</h1>
+                <h1>{entry.company}</h1>
+                <h2>{entry.position}</h2>
+                <h2>{entry.responsibilities}</h2>
+                <h2>{entry.dateFrom}</h2>
+                <h2>{entry.dateTo}</h2>
                 <br />
-                {previewDivEducation}
-                {previewDivExperience}
             </div>
-
-            <button className="submit" onClick={() => handleSubmit()}>Submit</button>
-        </div>
+        ));
     }
+
+    const previewDivExperience = (
+        <>
+            {renderOtherExperience()}
+        </>
+    )
+
+
+    return <div className="preview-container">
+
+        <div className="preview">
+            <h1>{generalInfo.fname} {generalInfo.lname}</h1>
+            <h2>{generalInfo.email}</h2>
+            <h2>{generalInfo.phone}</h2>
+            <br />
+            {previewDivEducation}
+            {previewDivExperience}
+        </div>
+
+        <button className="submit" onClick={() => handleSubmit()}>Submit</button>
+    </div>
+}

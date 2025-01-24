@@ -28,7 +28,7 @@ function App() {
 
   const [educationEntries, setEducationEntries] = useState([]); // To store all education entries
   const [currentEducationIndex, setCurrentEducationIndex] = useState(0); // To navigate through education entries
-  
+
   const handleInputChangeEducation = (field, value) => { // To handle input changes
     setEducationInfo({ ...educationInfo, [field]: value });
   };
@@ -45,12 +45,12 @@ function App() {
       // Otherwise, return the original entry
       return entry;
     });
-  
+
     // If no entries exist at the current index, append the new entry
     if (currentEducationIndex >= updatedEntries.length) {
       updatedEntries.push({ ...educationInfo });
     }
-  
+
     // Update the entries array
     setEducationEntries(updatedEntries);
   };
@@ -58,16 +58,16 @@ function App() {
   const addEducationEntry = () => {
     // Create a new array with the existing entries
     const updatedEntries = [...educationEntries];
-    
+
     // Add a new blank entry to the array
     updatedEntries.push({ school: "", title: "", date: "" });
-    
+
     // Update the entries array
     setEducationEntries(updatedEntries);
-    
+
     // Move the current index to the newly created entry
     setCurrentEducationIndex(updatedEntries.length - 1);
-    
+
     // Reset the educationInfo to blank
     setEducationInfo({ school: "", title: "", date: "" });
   };
@@ -150,6 +150,132 @@ function App() {
     dateTo: "",
   });
 
+  const [experienceEntries, setExperienceEntries] = useState([]); // To store all experience entries
+  const [currentExperienceIndex, setCurrentExperienceIndex] = useState(0); // To navigate through experience entries
+
+  const handleInputChangeExperience = (field, value) => { // To handle input changes
+    setExperienceInfo({ ...experienceInfo, [field]: value });
+  };
+
+  // Education button functions
+
+  const submitExperienceEntry = () => {
+    // Create a new array by mapping through existing entries
+    const updatedEntries = experienceEntries.map((entry, index) => {
+      // If this is the current index, update with current educationInfo
+      if (index === currentExperienceIndex) {
+        return { ...experienceInfo };
+      }
+      // Otherwise, return the original entry
+      return entry;
+    });
+
+    // If no entries exist at the current index, append the new entry
+    if (currentExperienceIndex >= updatedEntries.length) {
+      updatedEntries.push({ ...experienceInfo });
+    }
+
+    // Update the entries array
+    setExperienceEntries(updatedEntries);
+  };
+
+  const addExperienceEntry = () => {
+    // Create a new array with the existing entries
+    const updatedEntries = [...experienceEntries];
+
+    // Add a new blank entry to the array
+    updatedEntries.push({ school: "", title: "", date: "" });
+
+    // Update the entries array
+    setExperienceEntries(updatedEntries);
+
+    // Move the current index to the newly created entry
+    setCurrentExperienceIndex(updatedEntries.length - 1);
+
+    // Reset the educationInfo to blank
+    setExperienceInfo({ school: "", title: "", date: "" });
+  };
+
+  const nextExperience = () => {
+    if (currentExperienceIndex < experienceEntries.length - 1) {
+      // When moving to next entry, update the experience state 
+      // with the details of the next entry
+      setCurrentExperienceIndex(currentExperienceIndex + 1);
+      setExperienceInfo({
+        company: experienceEntries[currentExperienceIndex + 1].company,
+        position: experienceEntries[currentExperienceIndex + 1].position,
+        responsibilities: experienceEntries[currentExperienceIndex + 1].responsibilities,
+        dateFrom: experienceEntries[currentExperienceIndex + 1].dateFrom,
+        dateTo: experienceEntries[currentExperienceIndex + 1].dateTo,
+      });
+      return currentExperienceIndex
+    }
+  };
+
+  const prevExperience = () => {
+    if (currentExperienceIndex > 0) {
+      // When moving to previous entry, update the experienceInfo state 
+      // with the details of the previous entry
+      setCurrentExperienceIndex(currentExperienceIndex - 1);
+
+
+      setExperienceInfo({
+        company: experienceEntries[currentExperienceIndex - 1].company,
+        position: experienceEntries[currentExperienceIndex - 1].position,
+        responsibilities: experienceEntries[currentExperienceIndex - 1].responsibilities,
+        dateFrom: experienceEntries[currentExperienceIndex - 1].dateFrom,
+        dateTo: experienceEntries[currentExperienceIndex - 1].dateTo,
+      });
+      return currentExperienceIndex
+    }
+  };
+
+  // Experience input fields template
+
+  const experienceFields = (
+    <>
+      <h2>Experience</h2>
+
+      <label htmlFor="schoolName">Company:</label>
+      <input
+        type="text"
+        value={experienceInfo.company}
+        placeholder="Springfield Nuclear Plant"
+        onChange={(event) => handleInputChangeExperience("company", event.target.value)}
+      />
+
+      <label htmlFor="title">Position:</label>
+      <input
+        type="text"
+        value={experienceInfo.position}
+        placeholder="Head Bee guy"
+        onChange={(event) => handleInputChangeExperience("position", event.target.value)}
+      />
+
+      <label htmlFor="responsibilities">Responsibilities:</label>
+      <input
+        type="text"
+        value={experienceInfo.responsibilities}
+        onChange={(event) => handleInputChangeExperience("responsibilities", event.target.value)}
+      />
+
+      <label htmlFor="responsibilities">Date From:</label>
+      <input
+        type="date"
+        value={experienceInfo.dateFrom}
+        onChange={(event) => handleInputChangeExperience("dateFrom", event.target.value)}
+      />
+
+      <label htmlFor="date-to">Date To:</label>
+      <input
+        type="date"
+        value={experienceInfo.dateTo}
+        onChange={(event) => handleInputChangeExperience("dateTo", event.target.value)}
+      />
+
+    </>
+  )
+
   // Render and passing props to components
 
   return (
@@ -157,11 +283,12 @@ function App() {
       <h1>CV Builder</h1>
       <General generalInfo={generalInfo} setGeneralInfo={setGeneralInfo} />
       <Education setEducationInfo={setEducationInfo} educationFields={educationFields} nextEducation={nextEducation} prevEducation={prevEducation} addEducationEntry={addEducationEntry} submitEducationEntry={submitEducationEntry} />
-      <Experience experienceInfo={experienceInfo} setExperienceInfo={setExperienceInfo} />
+      <Experience setExperienceInfo={setExperienceInfo} experienceFields={experienceFields} nextExperience={nextExperience} prevExperience={prevExperience} addExperienceEntry={addExperienceEntry} submitExperienceEntry={submitExperienceEntry} />
       <Preview generalInfo={generalInfo}
         setEducationInfo={setEducationInfo}
         educationEntries={educationEntries}
-        experienceInfo={experienceInfo} />
+        setExperienceInfo={setExperienceInfo}
+        experienceEntries={experienceEntries} />
     </>
   )
 }

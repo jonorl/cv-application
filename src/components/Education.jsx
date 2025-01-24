@@ -1,5 +1,3 @@
-import App from "./App";
-
 export default function Education({ submitEducationEntry, setEducationInfo, educationFields, prevEducation, nextEducation, addEducationEntry }) {
 
   const handleDelete = (school, title, date) => {
