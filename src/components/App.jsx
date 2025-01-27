@@ -258,8 +258,9 @@ function App() {
       />
 
       <label htmlFor="responsibilities">Responsibilities:</label>
-      <input
-        type="text"
+      <textarea
+        rows="4" 
+        cols="50"
         value={experienceInfo.responsibilities}
         onChange={(event) => handleInputChangeExperience("responsibilities", event.target.value)}
       />

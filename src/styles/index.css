@@ -107,9 +107,12 @@ button.submit {
   font-size: 18px;
 }
 
-input {
+input, textarea {
   width: 25vw;
   text-align: center;
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
 }
 
 [class^="delete"] {
