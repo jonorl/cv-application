@@ -19,7 +19,7 @@ export default function Education({ submitEducationEntry, setEducationInfo, educ
         {eduMoreThanOne ? <button className="add-education"onClick={addEducationEntry}>Add</button> : false}
         {eduMoreThanOne ? <button className="prev-education"onClick={prevEducation}>Prev</button> : false}
         {eduMoreThanOne ? <button className="next-education"onClick={nextEducation}>Next</button> : false}
-        <button className="delete-education" onClick={() => handleDelete('school', 'title', 'date')}>Delete</button>
+        <button className="delete-education" onClick={() => handleDelete('school', 'title', 'date')}>Reset</button>
       </div>
 
     </div>

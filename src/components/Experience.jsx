@@ -22,7 +22,7 @@ export default function Experience({ submitExperienceEntry, setExperienceInfo, e
       {expMoreThanOne ? <button className="add-experience"onClick={addExperienceEntry}>Add</button> : false}
       {expMoreThanOne ? <button className="prev-experience"onClick={prevExperience}>Prev</button> : false}
       {expMoreThanOne ? <button className="next-experience"onClick={nextExperience}>Next</button> : false}
-      <button className="delete-experience" onClick={() => handleDelete('company', 'position', 'responsibilities', 'dateFrom', 'dateTo')}>Delete</button>
+      <button className="delete-experience" onClick={() => handleDelete('company', 'position', 'responsibilities', 'dateFrom', 'dateTo')}>Reset</button>
       </div>
     </div>
   );

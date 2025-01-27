@@ -47,13 +47,13 @@ export default function General({ generalInfo, setGeneralInfo }) {
 
       <label htmlFor="phone">Phone:</label>
       <input
-        type="phone"
+        type="phone"  
         value={generalInfo.phone}
         placeholder="07123 546 789"
         onChange={(event) => handleInputChange('phone', event.target.value)}
       />
 
-      <button className="delete-general" onClick={() => handleDelete('fname', 'lname', 'email', 'phone')}>Delete</button>
+      <button className="delete-general" onClick={() => handleDelete('fname', 'lname', 'email', 'phone')}>Reset</button>
 
     </div>
   );

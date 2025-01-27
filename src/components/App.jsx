@@ -189,7 +189,7 @@ function App() {
     const updatedEntries = [...experienceEntries];
 
     // Add a new blank entry to the array
-    updatedEntries.push({ school: "", title: "", date: "" });
+    updatedEntries.push({ company: "", position: "", responsibilities: "", dateFrom: "", dateTo: "",});
 
     // Update the entries array
     setExperienceEntries(updatedEntries);
@@ -198,7 +198,7 @@ function App() {
     setCurrentExperienceIndex(updatedEntries.length - 1);
 
     // Reset the educationInfo to blank
-    setExperienceInfo({ school: "", title: "", date: "" });
+    setExperienceInfo({ company: "", position: "", responsibilities: "", dateFrom: "", dateTo: "",});
   };
 
   const nextExperience = () => {
