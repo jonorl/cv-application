@@ -20,6 +20,8 @@ function App() {
 
   // Education state changes
 
+  const [eduMoreThanOne, setEduMoreThanOne] = useState(false)   // To make the additional buttons appear
+
   const [educationInfo, setEducationInfo] = useState({  // To render input on Preview
     school: "",
     title: "",
@@ -51,6 +53,9 @@ function App() {
       updatedEntries.push({ ...educationInfo });
     }
 
+    // Make the prev/next buttons appear
+    setEduMoreThanOne(true)
+
     // Update the entries array
     setEducationEntries(updatedEntries);
   };
@@ -73,12 +78,10 @@ function App() {
   };
 
   const nextEducation = () => {
-    console.log("currentEducationIndex " + currentEducationIndex)
     if (currentEducationIndex < educationEntries.length - 1) {
       // When moving to next entry, update the educationInfo state 
       // with the details of the next entry
       setCurrentEducationIndex(currentEducationIndex + 1);
-      console.log("currentEducationIndex " + currentEducationIndex)
       setEducationInfo({
         school: educationEntries[currentEducationIndex + 1].school,
         title: educationEntries[currentEducationIndex + 1].title,
@@ -86,11 +89,9 @@ function App() {
       });
       return currentEducationIndex
     }
-    console.log("currentEducationIndex " + currentEducationIndex)
   };
 
   const prevEducation = () => {
-    console.log("currentEducationIndex " + currentEducationIndex)
     if (currentEducationIndex > 0) {
       // When moving to previous entry, update the educationInfo state 
       // with the details of the previous entry
@@ -104,7 +105,6 @@ function App() {
       });
       return currentEducationIndex
     }
-    console.log("currentEducationIndex " + currentEducationIndex)
   };
 
   // Education input fields template
@@ -142,6 +142,8 @@ function App() {
 
   // Experience state changes
 
+  const [expMoreThanOne, setExpMoreThanOne] = useState(false)   // To make the additional buttons appear
+
   const [experienceInfo, setExperienceInfo] = useState({
     company: "",
     position: "",
@@ -174,6 +176,9 @@ function App() {
     if (currentExperienceIndex >= updatedEntries.length) {
       updatedEntries.push({ ...experienceInfo });
     }
+
+    // Make the prev/next buttons appear
+    setExpMoreThanOne(true)
 
     // Update the entries array
     setExperienceEntries(updatedEntries);
@@ -282,8 +287,8 @@ function App() {
     <>
       <h1>CV Builder</h1>
       <General generalInfo={generalInfo} setGeneralInfo={setGeneralInfo} />
-      <Education setEducationInfo={setEducationInfo} educationFields={educationFields} nextEducation={nextEducation} prevEducation={prevEducation} addEducationEntry={addEducationEntry} submitEducationEntry={submitEducationEntry} />
-      <Experience setExperienceInfo={setExperienceInfo} experienceFields={experienceFields} nextExperience={nextExperience} prevExperience={prevExperience} addExperienceEntry={addExperienceEntry} submitExperienceEntry={submitExperienceEntry} />
+      <Education setEducationInfo={setEducationInfo} educationFields={educationFields} nextEducation={nextEducation} prevEducation={prevEducation} addEducationEntry={addEducationEntry} submitEducationEntry={submitEducationEntry} eduMoreThanOne={eduMoreThanOne}/>
+      <Experience setExperienceInfo={setExperienceInfo} experienceFields={experienceFields} nextExperience={nextExperience} prevExperience={prevExperience} addExperienceEntry={addExperienceEntry} submitExperienceEntry={submitExperienceEntry} expMoreThanOne={expMoreThanOne}/>
       <Preview generalInfo={generalInfo}
         setEducationInfo={setEducationInfo}
         educationEntries={educationEntries}

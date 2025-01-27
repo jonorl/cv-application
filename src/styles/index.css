@@ -132,6 +132,7 @@ input {
   background-color: yellowgreen;
   color:#242424;
   width: fit-content;
+  align-self: center;
   justify-self: center;
   margin-top: 3vh;
   margin-bottom: 3vh;
