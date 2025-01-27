@@ -92,6 +92,20 @@ h1 {
   border: solid 2px whitesmoke;
   justify-self: center;
   width: 40vw;
+
+}
+
+.preview-general, .preview-education, .preview-experience{
+  border: solid 2px whitesmoke;
+  margin: 3%;
+}
+
+.preview-education>div>h1, .preview-experience>div>h1 {
+  font-size: 42px;
+}
+
+.candidate-work-from, .candidate-work-to, .candidate-grad-date {
+  font-size: 18px;
 }
 
 button.submit {

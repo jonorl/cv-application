@@ -16,9 +16,9 @@ export default function Preview({ generalInfo, educationEntries, experienceEntri
         return educationEntries.map((entry, index) => (
             <div key={index}>
                 <h1>Education {index + 1}</h1>
-                <h2>{entry.school}</h2>
-                <h2>{entry.title}</h2>
-                <h2>{entry.date}</h2>
+                <h2 className="candidate-school">{entry.school}</h2>
+                <h2 className="candidate-title">{entry.title}</h2>
+                <h2 className="candidate-grad-date">{entry.date}</h2>
                 <br />
             </div>
         ));
@@ -34,11 +34,11 @@ export default function Preview({ generalInfo, educationEntries, experienceEntri
         return experienceEntries.map((entry, index) => (
             <div key={index}>
                 <h1>Experience {index + 1}</h1>
-                <h2>{entry.company}</h2>
-                <h2>{entry.position}</h2>
-                <h2>{entry.responsibilities}</h2>
-                <h2>{entry.dateFrom}</h2>
-                <h2>{entry.dateTo}</h2>
+                <h2 className="candidate-company">{entry.company}</h2>
+                <h2 className="candidate-position">{entry.position}</h2>
+                <h2 className="candidate-responsibilities">{entry.responsibilities}</h2>
+                <h2 className="candidate-work-from">{entry.dateFrom}</h2>
+                <h2 className="candidate-work-to">{entry.dateTo}</h2>
                 <br />
             </div>
         ));
@@ -54,12 +54,18 @@ export default function Preview({ generalInfo, educationEntries, experienceEntri
     return <div className="preview-container">
 
         <div className="preview">
-            <h1>{generalInfo.fname} {generalInfo.lname}</h1>
-            <h2>{generalInfo.email}</h2>
-            <h2>{generalInfo.phone}</h2>
+            <div className="preview-general">
+            <h1 className="candidate-name">{generalInfo.fname} {generalInfo.lname}</h1>
+            <h2 className="candidate-email">{generalInfo.email}</h2>
+            <h2 className="candidate-phone">{generalInfo.phone}</h2>
             <br />
+            </div>
+            <div className="preview-education">
             {previewDivEducation}
+            </div>
+            <div className="preview-experience">
             {previewDivExperience}
+            </div>
         </div>
 
         <button className="submit" onClick={() => handleSubmit()}>Submit</button>
